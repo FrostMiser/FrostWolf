@@ -1,0 +1,7 @@
+name: FrostWolf
+main: frostWolf.FrostWolf
+version: 1.0
+permissions:
+    FrostWolf.wolf:
+        description: Allow someone to become a wolf.
+        default: op
