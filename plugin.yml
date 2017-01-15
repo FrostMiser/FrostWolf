@@ -5,3 +5,6 @@ permissions:
     FrostWolf.wolf:
         description: Allow someone to become a wolf.
         default: true     
+    FrostWolf.toggleWolf:
+        description: Turn a player into a wolf (or turn them back to normal).
+        default: Op
