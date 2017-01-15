@@ -6,8 +6,4 @@ Players have a chance of becoming a FrostWolf by being bitten by a wolf in any w
 
 Permissions
 ===========
-FrostWolf.frostWolf (Default OP) - Add this permission for players you would like to be able to become FrostWolves.
-
-
-
-
+FrostWolf.frostWolf (Default true) - This permission allows players to be able to become FrostWolves when they are bitten.
