@@ -1,10 +1,16 @@
 name: FrostWolf
 main: frostWolf.FrostWolf
 version: 1.0
+commands:
+  togglewolf:
+    description: Turn a player into a FrostWolf (or back to normal).
+    usage: Use /togglewolf <player>
+    permission: FrostWolf.admin
+    permission-message: You may not used this command.
 permissions:
     FrostWolf.wolf:
         description: Allow someone to become a wolf.
         default: true     
-    FrostWolf.toggleWolf:
-        description: Turn a player into a wolf (or turn them back to normal).
+    FrostWolf.admin:
+        description: Administrative command(s) for FrostWolf.
         default: Op

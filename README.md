@@ -8,4 +8,9 @@ Players have a chance of becoming a FrostWolf by being bitten by a wolf in any w
 Permissions
 ===========
 FrostWolf.frostWolf (Default true) - This permission allows players to be able to become FrostWolves when they are bitten.
-FrostWolf.toggleWolf (Default true) - Allow use of /togglewolf, which will turn a player into a wolf (or turn them back to normal).
+FrostWolf.admin (Default Op) - Allow use of administrative command(s) such as /togglewolf <player>.
+
+
+Commands
+===========
+/togglewolf <player> - Turn a player into a FrostWolf (or back to normal if they are already one).
