@@ -1,3 +1,5 @@
+![Frostwolf](/Frostwolf-Logo.png?raw=true "FrostWolf")
+
 FrostWolf
 =============
 This is a Minecraft Bukkit plugin which allows players on a server to turn into a FrostWolf. FrostWolves are creatures which gain special abilities during the night.
