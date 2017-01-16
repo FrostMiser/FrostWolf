@@ -10,6 +10,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.Random;
 
@@ -47,8 +49,13 @@ public class PlayerListener implements Listener {
 				int frostWolfChance = randomGen.nextInt(10);
 				
 				if (frostWolfChance == 5) {
-					event.getEntity().sendMessage(ChatColor.AQUA + "[FrostWolf] You feel the power of a FrostWolf flowing through you.");
-					//todo add inital effects
+					Player p = (Player) event.getEntity();
+					p.sendMessage(ChatColor.AQUA + "[FrostWolf] You feel the power of a FrostWolf flowing through you.");
+					
+					p.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION,1200,0));
+					p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED,1200,2));
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER,1200,0));
+					p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP,1200,1));
 					FrostWolf.wolfList.add(event.getEntity().getUniqueId());
 				}
 			}
