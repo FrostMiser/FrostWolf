@@ -35,7 +35,7 @@ public class FrostWolf extends JavaPlugin {
 					p.removePotionEffect(PotionEffectType.SPEED);
 					p.removePotionEffect(PotionEffectType.HUNGER);
 					p.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION,1200,0));
-					p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED,1200,0));
+					p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED,1200,2));
 					p.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER,1200,0));
 				}
 			}
