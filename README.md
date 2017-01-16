@@ -17,9 +17,9 @@ Being a FrostWolf
 ----------
 During the night, FrostWolves become extremely powerful and gain the following attributes:
 
-Jump Boost
-Night Vision
-Speed
+Jump Boost,
+Night Vision,
+Speed,
 10x damage increase
 
 Be aware, all this power comes with greatly increased hunger. At night FrostWolves will experience greatly increased hunger.
