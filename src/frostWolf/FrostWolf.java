@@ -6,7 +6,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -17,9 +16,14 @@ public class FrostWolf extends JavaPlugin {
 
 	public void onEnable() {
 
+		
 		//Send a message when the plugin being enabled
 		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostWolf] Plugin is being enabled...");
 		
+		//Register player listener
+		getServer().getPluginManager().registerEvents(new PlayerListener(),this);
+		
+		//Register togglewolf command to togglewolf class
 		getCommand("togglewolf").setExecutor(new ToggleWolf(this));
 		
 		//Repeating task to check for wolves
