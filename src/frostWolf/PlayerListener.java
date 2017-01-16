@@ -1,6 +1,7 @@
 package frostWolf;
 
 import org.bukkit.Material;
+import org.bukkit.block.Biome;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Wolf;
 import org.bukkit.event.EventHandler;
@@ -29,16 +30,28 @@ public class PlayerListener implements Listener {
 			event.getEntity() instanceof Player && 
 			!(FrostWolf.wolfList.contains(event.getEntity().getUniqueId()))) {
 			
-			//Chance of player becoming a FrostWolf
-			Random randomGen = new Random();
-			int frostWolfChance = randomGen.nextInt(10);
+			Biome biome = event.getEntity().getLocation().getBlock().getBiome();
 			
-			if (frostWolfChance == 5) {
-				event.getEntity().sendMessage(ChatColor.AQUA + "[FrostWolf] You feel the power of a FrostWolf flowing through you.");
-				//todo add inital effects
-				FrostWolf.wolfList.add(event.getEntity().getUniqueId());
+			//Only occurs in a winter biome
+			if (biome.equals(Biome.TAIGA) || 
+				biome.equals(Biome.TAIGA_COLD) ||
+				biome.equals(Biome.TAIGA_COLD_HILLS) ||
+				biome.equals(Biome.ICE_FLATS) ||
+				biome.equals(Biome.ICE_MOUNTAINS) ||
+				biome.equals(Biome.MUTATED_ICE_FLATS) ||
+				biome.equals(Biome.MUTATED_TAIGA) ||
+				biome.equals(Biome.MUTATED_TAIGA_COLD)) {
+								
+				//Chance of player becoming a FrostWolf
+				Random randomGen = new Random();
+				int frostWolfChance = randomGen.nextInt(10);
+				
+				if (frostWolfChance == 5) {
+					event.getEntity().sendMessage(ChatColor.AQUA + "[FrostWolf] You feel the power of a FrostWolf flowing through you.");
+					//todo add inital effects
+					FrostWolf.wolfList.add(event.getEntity().getUniqueId());
+				}
 			}
-
 		}
 		
 		
