@@ -28,7 +28,6 @@ Be aware, all this power comes with greatly increased hunger. At night FrostWolv
 
 Permissions
 ===========
-FrostWolf.frostWolf (Default true) - This permission allows players to be able to become FrostWolves when they are bitten.
 FrostWolf.admin (Default Op) - Allow use of administrative command(s) such as /togglewolf <player>.
 
 
