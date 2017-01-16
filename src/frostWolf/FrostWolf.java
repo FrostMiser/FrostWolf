@@ -56,7 +56,4 @@ public class FrostWolf extends JavaPlugin {
 	public void onDisable() {
 		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostWolf] Plugin disabled.");
 	}
-
-
-
 }
