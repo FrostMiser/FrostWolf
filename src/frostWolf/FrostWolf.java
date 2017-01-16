@@ -1,44 +1,58 @@
 package frostWolf;
 
-import org.bukkit.command.CommandSender;
-import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
-
 import org.bukkit.plugin.java.JavaPlugin;
-
 import org.bukkit.ChatColor;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 
 public class FrostWolf extends JavaPlugin {
+	public static List<UUID> wolfList = new ArrayList<UUID>(); //List of wolves, this holds the list of players who are wolves 
 
-	
 	public void onEnable() {
-		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostWolf] Plugin enabled.");
 
-		//Placeholder for wolf checking
-		this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() { public void run() {
-		}}, 24000L,7000L);
+		//Send a message when the plugin being enabled
+		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostWolf] Plugin is being enabled...");
 		
+		getCommand("togglewolf").setExecutor(new ToggleWolf(this));
+		
+		//Repeating task to check for wolves
+		this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() { public void run() {
+			//For each wolf
+			for (UUID wolfUUID: wolfList) {
+				Player p = getServer().getPlayer(wolfUUID);
+				//Check if its night time in the players world
+				long time = p.getWorld().getTime();
+				if (time > 12000 && time < 23000) {
+					//Update frostWolf effects
+					p.removePotionEffect(PotionEffectType.NIGHT_VISION);
+					p.removePotionEffect(PotionEffectType.SPEED);
+					p.removePotionEffect(PotionEffectType.HUNGER);
+					p.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION,1200,0));
+					p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED,1200,0));
+					p.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER,1200,0));
+				}
+			}
+		}}, 100L,100L);
+
+		
+		//Send a message when the plugin is enabled
+		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostWolf] Plugin enabled.");
 		return;
-			
 	}
 
+	
+	//Send a message when the plugin is disabled
 	public void onDisable() {
 		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostWolf] Plugin disabled.");
 	}
-	
-	
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) 
-	{
-		Player p;
-		try {
-			p = this.getServer().getPlayer(sender.getName());	
-		}
-		catch (Exception e) {
-			return true;
-		}
-		return true;
-	}
+
 
 
 }
