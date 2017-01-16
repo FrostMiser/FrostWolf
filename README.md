@@ -1,4 +1,4 @@
-[![Frostwolf](/Frostwolf-Logo.png) "FrostWolf"]
+[![Frostwolf](/FrostWolf-Logo.png) "FrostWolf"]
 
 FrostWolf
 =============
