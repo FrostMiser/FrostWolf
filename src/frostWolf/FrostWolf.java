@@ -30,19 +30,28 @@ public class FrostWolf extends JavaPlugin {
 		this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() { public void run() {
 			//For each wolf
 			for (UUID wolfUUID: wolfList) {
-				Player p = getServer().getPlayer(wolfUUID);
-				//Check if its night time in the players world
-				long time = p.getWorld().getTime();
-				if (time > 12000 && time < 23000) {
-					//Update frostWolf effects
-					p.removePotionEffect(PotionEffectType.NIGHT_VISION);
-					p.removePotionEffect(PotionEffectType.SPEED);
-					p.removePotionEffect(PotionEffectType.HUNGER);
-					p.removePotionEffect(PotionEffectType.JUMP);
-					p.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION,1200,0));
-					p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED,1200,2));
-					p.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER,1200,0));
-					p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP,1200,1));
+				Player p;
+				try {
+					p = getServer().getPlayer(wolfUUID);
+				}
+				catch (Exception e) {
+					p = null;
+				}
+				
+				if (p != null) {
+					//Check if its night time in the players world
+					long time = p.getWorld().getTime();
+					if (time > 12000 && time < 23000) {
+						//Update frostWolf effects
+						p.removePotionEffect(PotionEffectType.NIGHT_VISION);
+						p.removePotionEffect(PotionEffectType.SPEED);
+						p.removePotionEffect(PotionEffectType.HUNGER);
+						p.removePotionEffect(PotionEffectType.JUMP);
+						p.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION,1200,0));
+						p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED,1200,2));
+						p.addPotionEffect(new PotionEffect(PotionEffectType.HUNGER,1200,0));
+						p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP,1200,1));
+					}
 				}
 			}
 		}}, 100L,100L);
