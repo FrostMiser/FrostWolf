@@ -1,18 +1,10 @@
 package frostWolf;
 
-import org.bukkit.Effect;
-import org.bukkit.Location;
-import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
-import org.bukkit.util.Vector;
 
 
 public class PlayerListener implements Listener {
@@ -31,13 +23,11 @@ public class PlayerListener implements Listener {
 			//Increase the amount of damage done by 10x
 			event.setDamage((event.getDamage() * 10));
 		}
-
-			
-
-		
-		
-		
-		
 	}
 	
+
+	@EventHandler
+	public void onPlayerEat(PlayerInteractEvent event) {
+
+	}	
 }
