@@ -18,12 +18,11 @@ import java.util.Random;
 import org.bukkit.ChatColor;
 
 
-public class PlayerListener implements Listener {
 
+public class PlayerListener implements Listener {
 
 	@EventHandler
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
-		
 		
 		//Players being damaged by wolves in winter biomes have a chance to become a FrostWolf
 

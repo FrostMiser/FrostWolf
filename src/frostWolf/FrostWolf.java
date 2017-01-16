@@ -15,16 +15,21 @@ public class FrostWolf extends JavaPlugin {
 	public static List<UUID> wolfList = new ArrayList<UUID>(); //List of wolves, this holds the list of players who are wolves 
 
 	public void onEnable() {
-
-		
 		//Send a message when the plugin being enabled
 		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostWolf] Plugin is being enabled...");
+				
+		String wolfListString = this.getConfig().getString("FrostWolf.WolfList");
+		if (wolfListString != null && !wolfListString.equals("")) {
+			for (String wolfListItem : wolfListString.split(",")) {
+				wolfList.add(UUID.fromString(wolfListItem));
+			}			
+		}
 		
 		//Register player listener
 		getServer().getPluginManager().registerEvents(new PlayerListener(),this);
 		
 		//Register togglewolf command to togglewolf class
-		getCommand("togglewolf").setExecutor(new ToggleWolf(this));
+		getCommand("togglewolf").setExecutor(new ToggleWolf());
 		
 		//Repeating task to check for wolves
 		this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() { public void run() {
@@ -65,6 +70,16 @@ public class FrostWolf extends JavaPlugin {
 	
 	//Send a message when the plugin is disabled
 	public void onDisable() {
+		String wolfListString = "";
+		for (UUID wolfUUID: wolfList) {
+			wolfListString = wolfListString + (wolfListString.equals("")?"":",") + wolfUUID;
+		}
+		
+		this.getConfig().set("FrostWolf.WolfList",wolfListString);
+		
+		 	
+		this.saveConfig();
+		
 		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostWolf] Plugin disabled.");
 	}
 }

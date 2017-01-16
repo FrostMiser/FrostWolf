@@ -10,11 +10,6 @@ import org.bukkit.entity.Player;
 
 public class ToggleWolf implements CommandExecutor  {
 
-	//Constructor
-	public ToggleWolf(FrostWolf frostWolf) {
-		
-	}
-
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
