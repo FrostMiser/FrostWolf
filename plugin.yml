@@ -6,7 +6,7 @@ commands:
     description: Turn a player into a FrostWolf (or back to normal).
     usage: Use /togglewolf <player>
     permission: FrostWolf.admin
-    permission-message: You may not used this command.
+    permission-message: You may not use this command.
 permissions:
     FrostWolf.wolf:
         description: Allow someone to become a wolf.
