@@ -60,7 +60,6 @@ public class FrostWolf extends JavaPlugin {
 				}
 			}
 		}}, 100L,100L);
-
 		
 		//Send a message when the plugin is enabled
 		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostWolf] Plugin enabled.");
@@ -76,8 +75,7 @@ public class FrostWolf extends JavaPlugin {
 		}
 		
 		this.getConfig().set("FrostWolf.WolfList",wolfListString);
-		
-		 	
+				 	
 		this.saveConfig();
 		
 		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostWolf] Plugin disabled.");

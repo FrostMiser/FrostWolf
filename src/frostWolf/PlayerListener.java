@@ -59,10 +59,7 @@ public class PlayerListener implements Listener {
 				}
 			}
 		}
-		
-		
-		
-		
+			
 		//If damager is a FrostWolf, increase the amount of damage
 		if (!(event.getDamager() instanceof Player)) { return;} //Exit if damager is not a player
 		Player damager = (Player) event.getDamager();
