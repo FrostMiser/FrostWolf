@@ -28,7 +28,7 @@ public class ToggleWolf implements CommandExecutor  {
 			
 			//Check to see if a player was specified in the command
 			if (args.length == 0) {
-				p.sendMessage(ChatColor.AQUA + "[FrostWolf] Invalid use of command, usage /toggleWolf <player>");
+				p.sendMessage(ChatColor.AQUA + "[FrostWolf] Invalid use of command, use /toggleWolf <player>");
 				return true;
 			}
 			
