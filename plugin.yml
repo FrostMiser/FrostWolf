@@ -1,6 +1,6 @@
 name: FrostWolf
 main: frostWolf.FrostWolf
-version: 1.0
+version: 2.0
 commands:
   togglewolf:
     description: Turn a player into a FrostWolf (or back to normal).
