@@ -31,7 +31,7 @@ public class FrostWolf extends JavaPlugin {
 		getCommand("togglewolf").setExecutor(new ToggleWolf());
 		
 		//Repeating task to check for wolves
-		this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() { public void run() {
+		this.getServer().getScheduler().runTaskTimerAsynchronously(this, new Runnable() { public void run() {
 			//For each wolf
 			for (UUID wolfUUID: wolfList) {
 				Player p;
