@@ -29,8 +29,7 @@ Be aware, all this power comes with greatly increased hunger.
 Releases
 ===========
 - 1.0 Initial version
-- 2.0 Update to Minecraft 1.13
-    Add health boost to FrostWolves
+- 2.0 Update to Minecraft 1.13 and add health boost to FrostWolves
 
 
 Permissions
