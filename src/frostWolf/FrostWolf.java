@@ -17,7 +17,6 @@ public class FrostWolf extends JavaPlugin {
 	public void onEnable() {
 		//Send a message when the plugin being enabled
 		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostWolf] Plugin is being enabled...");
-				
 		String wolfListString = this.getConfig().getString("FrostWolf.WolfList");
 		if (wolfListString != null && !wolfListString.equals("")) {
 			for (String wolfListItem : wolfListString.split(",")) {
@@ -36,12 +35,8 @@ public class FrostWolf extends JavaPlugin {
 			//For each wolf
 			for (UUID wolfUUID: wolfList) {
 				Player p;
-				try {
-					p = getServer().getPlayer(wolfUUID);
-				}
-				catch (Exception e) {
-					p = null;
-				}
+				try { p = getServer().getPlayer(wolfUUID); }
+				catch (Exception e) { p = null; }
 				
 				if (p != null) {
 					//Check if its night time in the players world
@@ -75,9 +70,7 @@ public class FrostWolf extends JavaPlugin {
 		}
 		
 		this.getConfig().set("FrostWolf.WolfList",wolfListString);
-				 	
 		this.saveConfig();
-		
 		this.getServer().getConsoleSender().sendMessage(ChatColor.AQUA + "[FrostWolf] Plugin disabled.");
 	}
 }
