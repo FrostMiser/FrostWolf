@@ -23,27 +23,29 @@ public class PlayerListener implements Listener {
 
 	@EventHandler
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
-		
 		//Players being damaged by wolves in winter biomes have a chance to become a FrostWolf
-
+		
 		//If damager is a wolf and entity being damaged is a player, and player is not already a FrostWolf
-		if (event.getDamager() instanceof Wolf && 
-			event.getEntity() instanceof Player && 
-			!(FrostWolf.wolfList.contains(event.getEntity().getUniqueId()))) {
-			
+		if (event.getDamager() instanceof Wolf &&  event.getEntity() instanceof Player && 
+			!(FrostWolf.wolfList.contains(event.getEntity().getUniqueId()))) {		
 			Biome biome = event.getEntity().getLocation().getBlock().getBiome();
 			
 			//Only occurs in a winter biome
 			if (biome.equals(Biome.TAIGA) || 
-				biome.equals(Biome.TAIGA_COLD) ||
-				biome.equals(Biome.TAIGA_COLD_HILLS) ||
-				biome.equals(Biome.ICE_FLATS) ||
-				biome.equals(Biome.ICE_MOUNTAINS) ||
-				biome.equals(Biome.MUTATED_ICE_FLATS) ||
-				biome.equals(Biome.MUTATED_TAIGA) ||
-				biome.equals(Biome.MUTATED_TAIGA_COLD)) {
+				biome.equals(Biome.TAIGA_HILLS) ||
+				biome.equals(Biome.TAIGA_MOUNTAINS) ||
+				biome.equals(Biome.SNOWY_TAIGA) ||
+				biome.equals(Biome.SNOWY_TAIGA_HILLS) ||
+				biome.equals(Biome.SNOWY_MOUNTAINS) ||
+				biome.equals(Biome.FROZEN_RIVER) ||
+				biome.equals(Biome.FROZEN_OCEAN) ||
+				biome.equals(Biome.DEEP_FROZEN_OCEAN) ||
+				biome.equals(Biome.SNOWY_BEACH) ||
+				biome.equals(Biome.ICE_SPIKES) ||
+				biome.equals(Biome.SNOWY_TUNDRA)) 
+			{
 								
-				//Chance of player becoming a FrostWolf
+				//Chance of a player becoming a FrostWolf
 				Random randomGen = new Random();
 				int frostWolfChance = randomGen.nextInt(10);
 				
@@ -76,12 +78,10 @@ public class PlayerListener implements Listener {
 	@EventHandler
 	public void onPlayerEat(PlayerInteractEvent event) {
 		Player p = event.getPlayer();
-		
 		if (!FrostWolf.wolfList.contains(p.getUniqueId())) { return; } //Exit if player eating is not a FrostWolf
-		
 		if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 			ItemStack itemInHand = p.getInventory().getItemInMainHand();
-			if (itemInHand.getType().equals(Material.MUSHROOM_SOUP)) {
+			if (itemInHand.getType().equals(Material.MUSHROOM_STEW)) {
 				FrostWolf.wolfList.remove(p.getUniqueId());
 				p.getInventory().setItemInMainHand(new ItemStack(Material.AIR,1));
 				p.updateInventory();

@@ -24,8 +24,7 @@ public class ToggleWolf implements CommandExecutor  {
 		else { p = (Player) sender; }
 		
 		//toggleWolf command
-		if (cmd.getName().equalsIgnoreCase("togglewolf")) {
-			
+		if (cmd.getName().equalsIgnoreCase("togglewolf")) {			
 			//Check to see if a player was specified in the command
 			if (args.length == 0) {
 				p.sendMessage(ChatColor.AQUA + "[FrostWolf] Invalid use of command, use /toggleWolf <player>");
@@ -42,7 +41,7 @@ public class ToggleWolf implements CommandExecutor  {
 				return true;
 			}
 			
-			//If the target player is a frostwolf, change them back to normal
+			//If the target player is a FrostWolf, change them back to normal
 			if (FrostWolf.wolfList.contains(toggleWolfPlayer.getUniqueId())) {
 				FrostWolf.wolfList.remove(toggleWolfPlayer.getUniqueId());
 				p.sendMessage(ChatColor.AQUA + "[FrostWolf] " + toggleWolfPlayer.getName() + " is no longer a FrostWolf.");				
@@ -54,5 +53,4 @@ public class ToggleWolf implements CommandExecutor  {
 		}
 		return true;
 	}
-
 }
