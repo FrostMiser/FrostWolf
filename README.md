@@ -20,10 +20,17 @@ During the night, FrostWolves become extremely powerful and gain the following a
 Jump Boost,
 Night Vision,
 Speed,
-10x damage increase
+10x damage increase,
+Health Boost
 
-Be aware, all this power comes with greatly increased hunger. At night FrostWolves will experience greatly increased hunger.
+Be aware, all this power comes with greatly increased hunger.
 
+
+Releases
+===========
+1.0 Initial version
+2.0 Update to Minecraft 1.13
+    Add health boost to FrostWolves
 
 
 Permissions
@@ -33,4 +40,4 @@ FrostWolf.admin (Default Op) - Allow use of administrative command(s) such as /t
 
 Commands
 ===========
-/togglewolf <player> - Turn a player into a FrostWolf (or back to normal if they are already one).
+/togglewolf <player> - Administrative command which can turn a player into a FrostWolf (or back to normal if they are already one).
